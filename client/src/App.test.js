@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
-import { findByTestAttribute } from './Util';
+import { findByTestAttribute } from './util';
 
 describe('App Component', () => {
   it('Renders without errors', () => {
