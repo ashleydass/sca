@@ -13,7 +13,9 @@ describe('BaseInput Component', () => {
           label: "Label",
           isRequired: true,
           type: "email",
-          placeHolderText: "Place Holder"
+          placeHolderText: "Place Holder",
+          values: {},
+          errors: {}
         };
         const propsError = checkProps(BaseInput, expectedProps);
         expect(propsError).toBeUndefined();

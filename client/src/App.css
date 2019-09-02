@@ -6,3 +6,24 @@ body {
 input {
   border-radius: 0% !important;
 }
+
+form {
+  margin: 30px auto 0;
+}
+
+button {
+  border-radius: 2% !important;
+}
+
+.error-input {
+  border: 2px solid red;
+  border-radius: 4px;
+}
+
+.error-text {
+  margin: 0.25em 0 0 0;
+  padding: 0;
+  color: red;
+  font-style: bold;
+  font-size: .8rem;
+}

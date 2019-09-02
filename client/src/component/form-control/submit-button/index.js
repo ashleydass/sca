@@ -2,16 +2,17 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 
-function SubmitButton({ buttonText }) {
+function SubmitButton({ buttonText, disabled }) {
   return (
-    <Button variant="dark" type="submit" data-test="SubmitButton">
+    <Button variant="dark" type="submit" data-test="SubmitButton" disabled={disabled} >
       {buttonText}
     </Button>
   )
 }
 
 SubmitButton.propTypes = {
-  buttonText: PropTypes.string.isRequired
+  buttonText: PropTypes.string.isRequired,
+  disabled: PropTypes.bool
 }
 
 export default SubmitButton
