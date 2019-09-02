@@ -6,15 +6,15 @@ import SubmitButton from '../form-control/submit-button';
 
 import './register.css';
 
-const FirstName = () => <BaseInput label="First Name" name="firstName" type="text" isRequired={true} data-test="FirstName" />
+export const FirstName = () => <BaseInput label="First Name" name="firstName" type="text" isRequired={true} data-test="FirstName" />
 
-const LastName = () => <BaseInput label="Last Name" name="lastName" type="text" isRequired={true} data-test="LastName" />
+export const LastName = () => <BaseInput label="Last Name" name="lastName" type="text" isRequired={true} data-test="LastName" />
 
-const Email = () => <BaseInput label="Email" name="email" type="email" isRequired={true} data-test="Email" />
+export const Email = () => <BaseInput label="Email" name="email" type="email" isRequired={true} data-test="Email" />
 
-const MobilePhone = () => <BaseInput label="Mobile Phone" name="mobilePhone" type="phone" data-test="MobilePhone" />
+export const MobilePhone = () => <BaseInput label="Mobile Phone" name="mobilePhone" type="phone" data-test="MobilePhone" />
 
-const Register = () => {
+const Register = _ => {
   return (
     <div data-test="RegisterComponent">
       <Form>
@@ -36,7 +36,7 @@ const Register = () => {
         </Row>
         <Row>
           <Col>
-            <SubmitButton data-test="SubmitButton" />
+            <SubmitButton data-test="SubmitButton" buttonText="Submit" />
           </Col>
         </Row>
       </Form>

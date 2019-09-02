@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 
 const BaseInput = ({ name, label, isRequired, type, placeHolderText, onChange }) => {
   return (
-    <Form.Group controlId="firstName">
+    <Form.Group controlId={name} data-test={`BaseInput-${type}-${name}`}>
       <Form.Label>{label} {isRequired && <RequiredSign />}</Form.Label>
       <Form.Control
         type={type}
         placeholder={placeHolderText}
+        onChange={onChange}
+        name={name}
       />
     </Form.Group>)
 }
@@ -23,4 +25,4 @@ BaseInput.propTypes = {
 
 export default BaseInput;
 
-const RequiredSign = () => <span className="required-sign">*</span>
+export const RequiredSign = () => <span className="required-sign">*</span>
