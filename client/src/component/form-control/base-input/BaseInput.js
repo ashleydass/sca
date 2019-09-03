@@ -6,8 +6,6 @@ const BaseInput = (props) => {
   const { name, label, isRequired, type, placeHolderText } = props;
   const { onChange, onBlur, values, errors } = props;
 
-  const value = values && values[name];
-
   return (
     <Form.Group controlId={name} data-test={`BaseInput-${type}-${name}`}>
       <Form.Label>{label} {isRequired && <RequiredSign />}</Form.Label>
@@ -18,7 +16,7 @@ const BaseInput = (props) => {
         onChange={onChange}
         onBlur={onBlur}
         name={name}
-        value={value}
+        value={values && values[name]}
       />
       {errors && errors[name] && <p className="error-text">{errors[name]}</p>}
     </Form.Group>)

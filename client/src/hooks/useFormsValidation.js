@@ -1,11 +1,12 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import axios from 'axios';
 
-function useFormValidation(initialState, validate) {
-  const [values, setValues] = React.useState(initialState);
-  const [errors, setErrors] = React.useState({});
-  const [isSubmitting, setSubmitting] = React.useState(false);
+function useFormValidation(initialState, validate, dispatch) {
+  const [values, setValues] = useState(initialState);
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setSubmitting] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isSubmitting) {
       const noErrors = Object.keys(errors).length === 0;
       if (noErrors) {
@@ -23,7 +24,7 @@ function useFormValidation(initialState, validate) {
     });
   }
 
-  function handleBlur() {
+  function handleBlur(event) {
     const validationErrors = validate(values);
     setErrors(validationErrors);
   }
@@ -32,7 +33,25 @@ function useFormValidation(initialState, validate) {
     event.preventDefault();
     const validationErrors = validate(values);
     setErrors(validationErrors);
+    const noErrors = Object.keys(validationErrors).length === 0;
+
+    if (!noErrors) {
+      return;
+    }
     setSubmitting(true);
+
+    axios({
+      baseURL: 'http://localhost:5000',
+      data: {...values},
+      method: "POST",
+      url: 'api/profile'
+    })
+    .then(_ => dispatch({
+      type: "SUBMIT_SUCCESS"
+    }))
+    .catch(_ => dispatch({
+      type: "SUBMIT_FAILED"
+    }))
   }
 
   return {

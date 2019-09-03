@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Form from 'react-bootstrap/Form';
-import { checkProps, findByTestAttribute } from '../../../util';
-import BaseInput, { RequiredSign } from './index';
+import { checkProps, findByTestAttribute } from '../../../util/common';
+import BaseInput, { RequiredSign } from './BaseInput';
 
 describe('BaseInput Component', () => {
   describe('Checking PropTypes', () => {

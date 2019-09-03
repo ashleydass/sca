@@ -1,17 +1,24 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
-import { findByTestAttribute } from './util';
+import { findByTestAttribute, testStore } from './util/common';
+
+const setUp = (initialState = {}) => {
+  const store = testStore(initialState);
+  const wrapper = shallow(<App store={store} />);
+  return wrapper;
+};
+
 
 describe('App Component', () => {
-  it('Renders without errors', () => {
-    const component = shallow(<App />);
-    expect(component.length).toBe(1);
-  })
+  let wrapper;
+  beforeEach(() => {
+    const initialState = {}
+    wrapper = setUp(initialState);
+  });
 
-  it('Contains AppComponent', () => {
-    const component = shallow(<App />);
-    const appComponent = findByTestAttribute(component, 'AppComponent');
-    expect(appComponent.length).toBe(1);
-  })
+  it('Should render without errors', () => {
+    const component = findByTestAttribute(wrapper, 'AppComponent');
+    expect(component.length).toBe(1);
+  });
 })

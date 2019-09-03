@@ -1,7 +1,7 @@
 import React from 'react';
-import { findByTestAttribute, checkProps } from '../../../util';
+import { findByTestAttribute, checkProps } from '../../../util/common';
 import { shallow } from 'enzyme';
-import SubmitButton from './index';
+import SubmitButton from './SubmitButton';
 
 describe('SubmitButton Component', () => {
   describe('Checking PropTypes', () => {

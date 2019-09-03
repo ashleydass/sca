@@ -1,12 +1,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import SubmitButton from '../form-control/submit-button';
-import Register, { FirstName, LastName, Email, MobilePhone } from './index';
+import { testStore } from '../../util/common';
+import SubmitButton from '../form-control/submit-button/SubmitButton';
+import Register, { FirstName, LastName, Email, MobilePhone } from './RegisterForm';
+
+const setUp = (initialState = {}) => {
+  const store = testStore(initialState);
+  const wrapper = shallow(<Register store={store} />);
+
+  console.log(wrapper.debug());
+  return wrapper;
+};
 
 describe('Register Component', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<Register />);
+    wrapper = setUp()
   })
 
   it('Renders without errors', () => {
