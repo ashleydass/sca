@@ -41,7 +41,7 @@ function useFormValidation(initialState, validate, dispatch) {
     setSubmitting(true);
 
     axios({
-      baseURL: 'http://localhost:5000',
+      baseURL: 'http://api:5000',
       data: {...values},
       method: "POST",
       url: 'api/profile'

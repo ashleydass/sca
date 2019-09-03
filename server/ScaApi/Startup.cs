@@ -65,8 +65,8 @@ namespace ScaApi
                             CorsPolicyInDev,
                             builder =>
                             {
-                                builder.WithOrigins(
-                                        "http://localhost:3000")
+                                builder
+                                    .AllowAnyOrigin()
                                     .AllowAnyHeader()
                                     .AllowAnyMethod();
                             });

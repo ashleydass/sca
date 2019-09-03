@@ -25,7 +25,7 @@ To execute the tests use ```npm test``` in a separate window.
 
 1.	Using React.JS (SSR optional), create a single page app that renders this form
 
-![Subscribe form](/form.png "Subscribe form")
+![Subscribe form](/images/form.png "Subscribe form")
 
 2.	The page must be responsive
 3.	Create an API endpoint (using either node.js or .net core) that will receive the data from the form
@@ -48,4 +48,4 @@ To execute the tests use ```npm test``` in a separate window.
 ```
 7. Display this message when the submission is successful:
 
-![Submission Result](/result.png "Submission Result")
+![Submission Result](/images/result.png "Submission Result")

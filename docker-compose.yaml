@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  api:
+    build:
+      context: "./server/ScaApi"
+    ports:
+      - "5000:5000"
+
+  nginx:
+    build:
+      context: "./client"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
